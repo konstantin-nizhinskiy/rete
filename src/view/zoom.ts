@@ -37,7 +37,7 @@ export class Zoom {
         
         const rect = this.el.getBoundingClientRect();
         const wheelDelta = (e as unknown as DeltaWheelEvent).wheelDelta;
-        const delta = (wheelDelta ? wheelDelta / 120 : - e.deltaY / 3) * this.intensity;
+        const delta = (wheelDelta ? wheelDelta / 120 : - e.deltaY / 50) * this.intensity;
 
         const ox = (rect.left - e.clientX) * delta;
         const oy = (rect.top - e.clientY) * delta;
