@@ -18,8 +18,8 @@ export class ConnectionView extends Emitter<EventsTypes> {
 
         this.el = document.createElement('div');
         this.el.style.position = 'absolute';
-        this.el.style.zIndex = '-1';
-
+        //this.el.style.zIndex = '-1';
+        this.el.addEventListener('contextmenu', e => this.trigger('contextmenu', { e, connection: this }));
         this.trigger('renderconnection', { 
             el: this.el, 
             connection: this.connection, 

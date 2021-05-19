@@ -1154,8 +1154,14 @@ function (_Emitter) {
     _this.inputNode = inputNode;
     _this.outputNode = outputNode;
     _this.el = document.createElement('div');
-    _this.el.style.position = 'absolute';
-    _this.el.style.zIndex = '-1';
+    _this.el.style.position = 'absolute'; //this.el.style.zIndex = '-1';
+
+    _this.el.addEventListener('contextmenu', function (e) {
+      return _this.trigger('contextmenu', {
+        e: e,
+        connection: _assertThisInitialized(_this)
+      });
+    });
 
     _this.trigger('renderconnection', {
       el: _this.el,
